@@ -1,0 +1,69 @@
+@media screen and (min-width: $tablet) {
+    h2 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: $tablet2) {
+    h2 {
+        font-size: 3rem;
+    }
+}
+
+// desktop
+
+@media screen and (min-width: $desktop) {
+    main{
+        #sect1, #sect2, #sect3 {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+        #sect2 .info {
+            order: 1;
+        }
+
+        #sect4 {
+            grid-template-columns: repeat(5,1fr);
+            img:first-child {
+                grid-column: 1 ;
+            }
+        }
+
+        #sect5{
+            form {
+                grid-template-columns: 1fr auto auto 1fr;
+                text-align: left;
+            }
+        }
+    }
+    
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    header {
+        position: static;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: start;
+        .heading {
+            h1 {
+                display: block;
+            }
+        }
+        .social-media {
+            display: block;
+        }
+    }
+    
+    footer {
+        grid-template-columns: 1fr auto;
+        
+        p{
+            text-align: left;
+        }
+
+        
+    }
+}
+

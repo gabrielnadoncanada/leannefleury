@@ -1,0 +1,28 @@
+header {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    @extend .grid;
+    padding: 0.5rem;
+    grid-template-columns: 125px 1fr;
+    align-items: center;
+    z-index: 2;
+    .heading {
+        @extend.txt-center;
+        h1 {
+            display: none;
+        }
+        img {
+            max-width: 300px;
+        }
+    }
+    .contact {
+        @extend .txt-right;
+    }
+    .social-media {
+        display: none;
+    }
+    h1 {
+        color: $col-2;
+    }
+}

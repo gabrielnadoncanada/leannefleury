@@ -1,0 +1,375 @@
+* {
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+html {
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+span {
+    font-weight: 700;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+form {
+    input {
+        font-size: 1.5rem;
+        background-color: #E5E5E5;
+        color: #6F6F6F;
+        border: none;
+        padding: 0.6rem;
+        
+        &[type=text], &[type=email] {
+            box-shadow: 0px 0px 0px 2px #CBCBCB inset;
+            width: 100%;
+            &:focus {
+                box-shadow: 0px 0px 0px 2px $col-2 inset;
+                border: none;
+            }
+        }
+
+        &[type=submit] {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        &[type="checkbox"] {
+            margin: 5px;
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    textarea {
+        background-color: #E5E5E5;
+        font-size: 1.5rem;
+        box-shadow: 0px 0px 0px 2px #CBCBCB inset;
+        border: none;
+        padding: 0.6rem;
+        width: 100%;
+
+        &:focus {
+            box-shadow: 0px 0px 0px 2px $col-2 inset;
+            border: none;
+        }
+    }
+
+    label,
+    legend {
+        font-size: 1.5rem;
+        color: #6F6F6F;
+    }
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.trans {
+    transition: all 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+
+h1, h3 {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    margin: 0;
+}
+
+.card {
+    background-size: cover;
+    background-position: center;
+}
+
+h4 {
+    font-size: 48px;
+    font-weight: 300;
+    color: $col-1;
+    text-transform: uppercase;
+}
+
+i {
+    @extend.trans;
+    font-size: 1.5rem;
+    padding: 0.3rem;
+    color: $col-1;
+    cursor: pointer;
+
+    &:hover {
+        color: $col-2;
+    }
+}
+
+.grid {
+    display: grid;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.txt-left {
+    text-align: left;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.txt-white {
+    color: white;
+}
+
+.bg1 {
+    background-color: $col-1;
+    @extend .txt-white;
+}
+
+.bg2 {
+    background-color: $col-2;
+    @extend .txt-white;
+}
+
+.col2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+img {
+    max-width: 100%;
+}
+
+fieldset {
+    border: none;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+
+    &.grid-container {
+        @extend .grid;
+        grid-template-rows: auto 1fr auto;
+    }
+}
+
+@for $i from 1 through 4 {
+    .p#{$i} {
+        padding: #{$i}rem;
+    }
+}
+
+.sect {
+    @extend.grid;
+    @extend.col2;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.btn {
+    @extend.bg2;
+    @extend.txt-white;
+    @extend.trans;
+    padding: 0.6rem 1rem;
+
+    &:hover {
+        @extend.bg1;
+    }
+}
+
+.btn2 {
+    @extend.txt-white;
+    @extend.trans;
+    padding: 0.6rem 1rem;
+    border: 1px solid white;
+
+    &:hover {
+        border: 1px solid $col-1;
+        color: $col-1;
+    }
+}
+
+a.bttn, a.bttn2 {
+    color: #FFF;
+    text-decoration: none;
+    transition: 0.3s ease all;
+}
+
+.bttn {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    width: 270px;
+    font-weight: bold;
+    padding: 14px 0px;
+    border: 2px solid white;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        transition: 0.5s all ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        opacity: 0;
+        content: '';
+        background-color: $col-1;
+        z-index: -2;
+    }
+
+    &:hover {
+        border: 2px solid $col-1;
+        &:before {
+            transition: 0.5s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    &:focus {
+        border: 2px solid $col-1;
+        &:before {
+            transition: 0.5s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+        }
+    }
+}
+
+.bttn2 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    width: 270px;
+    font-weight: bold;
+    padding: 14px 0px;
+    border: 2px solid white;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        transition: 0.5s all ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        opacity: 0;
+        content: '';
+        background-color: $col-2;
+        z-index: -2;
+    }
+
+    &:hover {
+        border: 2px solid $col-2;
+        &:before {
+            -webkit-transition: 0.5s all ease;
+            transition: 0.5s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    &:focus {
+        border: 2px solid $col-2;
+        &:before {
+            transition: 0.5s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+        }
+    }
+}
+
+// copyright https://codepen.io/wintr/pen/wWoRVW
+
+form span {
+    color: $col-1;
+}
+
+fieldset {
+    @extend .txt-left;
+}
+
+.radio {
+  margin: 0.6rem;
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    + .radio-label {
+      &:before {
+        content: '';
+        background: #E5E5E5;
+        border-radius: 100%;
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        position: relative;
+        top: -0.2rem;
+        margin-right: 1rem; 
+        vertical-align: top;
+        cursor: pointer;
+        border: 2px solid #CBCBCB;
+        box-shadow: inset 0 0 0 5px #E5E5E5;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        &:before {
+          background-color: $col-2;
+        }
+      }
+    }
+  }
+}
+
+// copyright https://codepen.io/triss90/pen/XNEdRe

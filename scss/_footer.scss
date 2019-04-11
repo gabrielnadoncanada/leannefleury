@@ -1,0 +1,22 @@
+footer {
+    @extend .grid;
+    grid-template-columns: 1fr;
+    @extend .txt-center;
+    @extend .bg1;
+    @extend .p1;
+    margin-top: 5rem;
+    text-transform: uppercase;
+    p{
+        font-weight: 300;
+    }
+    a{
+        font-weight: 700;
+        text-decoration: underline;
+        font-size: 1.125rem;
+        color: white;
+
+        &:hover {
+            color: $col-2;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+$list: photographie design tatouage;
+
+@each $services in $list {
+    @for $i from 1 through 3 {
+        .#{$services}-#{$i}{
+            background-image: url("../img/#{$services}-#{$i}.png");
+            @extend .card;
+        }
+    }
+}
+
+main {
+    @extend.grid;
+    grid-template-rows: 1fr 1fr 1fr auto 1fr;
+    margin-top: 6rem;
+
+    .layout {
+        @extend.grid;
+        @extend.col2;
+        
+        a {
+            opacity: 1;
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+        :nth-child(1) {
+            grid-column: 1 / -1;    
+        }
+    }
+
+    #sect1, #sect2, #sect3  {
+        @extend.sect;
+    }
+    
+    #sect1 {
+        @extend.bg1;
+    }
+
+    #sect2 {
+        @extend.bg2;
+        .info {
+           order: 2;
+        }
+        .layout {
+          order: 1;  
+        }
+    }
+    
+    #sect3 {
+        @extend.bg1;
+    }
+    
+    #sect4 {
+        @extend .grid;
+        grid-template-columns: 1fr 1fr;
+        @extend.bg2;
+        @extend .align-center;
+        
+        img:first-child {
+            grid-column: 1 / -1; 
+        }
+
+        img {
+            @extend .p2; 
+           
+        }
+        
+        a {
+            @extend .txt-center;
+            &:hover{
+                transform: scale(0.6);
+            }
+        }
+    }
+    
+    #sect5 {
+        @extend .grid;
+        @extend .txt-center;
+        grid-template-columns: 1fr;
+    
+        form{
+            @extend.grid;
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.info {
+    @extend.p2;
+    align-self: center;
+}
+
+
